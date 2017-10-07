@@ -58,7 +58,7 @@ public class Api {
                             Request request;
                             request = original.newBuilder()
                                     .header("User-Agent", "Android: " + Build.MANUFACTURER + " " + Build.MODEL)
-                                    .header("Authorization", "")
+                                    .header("Authorization", userData.getNPM())
                                     .method(original.method(), original.body())
                                     .build();
                             return chain.proceed(request);
@@ -71,10 +71,6 @@ public class Api {
 
     public <T> T service(Class<T> service){
         return getRetrofit().create(service);
-    }
-
-    public void TesApi(){
-        Log.d("haha", userData.getNPM());
     }
 
 }
