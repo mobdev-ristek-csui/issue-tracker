@@ -18,5 +18,4 @@ public class ProfileFragment  extends Fragment {
     void init(){
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Profile");
     }
-
 }

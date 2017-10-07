@@ -22,7 +22,7 @@ import id.ac.ui.cs.ristek.issuetracker.model.IssuePlaceHolder;
  */
 @EFragment(R.layout.fragment_my_issues)
 public class MyIssuesFragment extends Fragment {
- 
+
     @ViewById(R.id.rv)
     RecyclerView RV ;
 
