@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="id.ac.ui.cs.ristek.issuetracker.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
+    <FrameLayout
+        android:id="@+id/layout_main_content_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rv"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
-    </android.support.v7.widget.RecyclerView>
-</LinearLayout>
+        android:layout_above="@+id/bottom_bar_main"
+        />
+
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottom_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:bb_tabXmlResource="@xml/bottombar_tabs"
+        app:bb_inActiveTabColor="@color/colorWhite"
+        app:bb_activeTabColor="@color/colorBlack"
+        android:background="@color/colorMain"
+        />
+
+
+</RelativeLayout>

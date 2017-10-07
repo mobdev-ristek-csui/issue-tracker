@@ -1,35 +1,59 @@
 package id.ac.ui.cs.ristek.issuetracker;
 
+import android.support.annotation.IdRes;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
 
-import id.ac.ui.cs.ristek.issuetracker.adapter.IssueAdapter;
-import id.ac.ui.cs.ristek.issuetracker.model.Issue;
-import id.ac.ui.cs.ristek.issuetracker.model.IssuePlaceHolder;
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
+import id.ac.ui.cs.ristek.issuetracker.fragment.HomeFragment;
+import id.ac.ui.cs.ristek.issuetracker.fragment.HomeFragment_;
+import id.ac.ui.cs.ristek.issuetracker.fragment.MyIssuesFragment;
+import id.ac.ui.cs.ristek.issuetracker.fragment.MyIssuesFragment_;
+import id.ac.ui.cs.ristek.issuetracker.fragment.ProfileFragment;
+import id.ac.ui.cs.ristek.issuetracker.fragment.ProfileFragment_;
+
+@EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
-    RecyclerView RV  ;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        RV = (RecyclerView) findViewById(R.id.rv);
-        final List<IssuePlaceHolder> issues = new ArrayList<>();
+    @ViewById(R.id.bottom_bar_main)
+    BottomBar bottomBar;
+    HomeFragment homeFragment;
+    MyIssuesFragment myIssuesFragment;
+    ProfileFragment profileFragment;
+    Fragment currentFragment;
+    FragmentTransaction ft;
 
-        issues.add(new IssuePlaceHolder("Kantin terlalu ramai", "Vincent", "Setiap semester ganjil, kantin menjadi terlalu penuh", 10, 20));
-        issues.add(new IssuePlaceHolder("Kantin makanannya ayam semua", "Cesa", "jenis makanan di kantin kurang bervariasi", 12, 15));
-        issues.add(new IssuePlaceHolder("MobDev keseringan minta makanan", "Jowin", "setiap kali internal class, selalu ada request makanan lol", 3, 2));
-
-        IssueAdapter issueAdapter = new IssueAdapter(this, issues);
-
-        RV.setLayoutManager(new LinearLayoutManager(this));
-        RV.setAdapter(issueAdapter);
-
+    @AfterViews
+    void init(){
+        initFragment();
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                ft = getSupportFragmentManager().beginTransaction();
+                if (tabId == R.id.tab_home) {
+                    currentFragment = homeFragment;
+                }else if(tabId == R.id.tab_my_issues){
+                    currentFragment = myIssuesFragment;
+                }else if(tabId == R.id.tab_profile){
+                    currentFragment = profileFragment;
+                }
+                ft.replace(R.id.layout_main_content_container, currentFragment);
+                ft.commit();
+            }
+        });
     }
+
+    void initFragment(){
+        homeFragment = HomeFragment_.builder().build();
+        myIssuesFragment = MyIssuesFragment_.builder().build();
+        profileFragment = ProfileFragment_.builder().build();
+    }
+
 }
