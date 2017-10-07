@@ -28,7 +28,7 @@ buildscript {
     }
 }
 
-def AAVersion = '4.3.0'
+def AAVersion = '4.3.1'
 repositories {
     mavenCentral()
     mavenLocal()
@@ -53,4 +53,6 @@ dependencies {
     // AndroidAnnotations
     annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
+    // BottomBar
+    compile 'com.roughike:bottom-bar:2.3.1'
 }
