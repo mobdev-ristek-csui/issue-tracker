@@ -2,6 +2,7 @@ package id.ac.ui.cs.ristek.issuetracker;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ public class IssueDetail extends AppCompatActivity {
 
         IssueDetailPlaceHolder issue = new IssueDetailPlaceHolder("Kantin Kotor", "UserBaru", "Ini content", 2, comments);
         IssueDetailAdapter adapter = new IssueDetailAdapter(getApplicationContext(), issue);
+
+        recyclerViewIssueDetail.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerViewIssueDetail.setAdapter(adapter);
 
     }
