@@ -8,6 +8,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+
 public class Issue {
 
     @SerializedName("id")
@@ -43,5 +44,14 @@ public class Issue {
     @SerializedName("attachments")
     @Expose
     public List<Attachment> attachments = null;
+    @SerializedName("num_of_comments")
+    @Expose
+    public int num_of_comments;
+    @SerializedName("num_of_upvotes")
+    @Expose
+    public int num_of_upvotes;
+    @SerializedName("num_of_attachments")
+    @Expose
+    public int num_of_attachments;
 
 }
