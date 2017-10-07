@@ -8,10 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import id.ac.ui.cs.ristek.issuetracker.model.Comment;
 import id.ac.ui.cs.ristek.issuetracker.model.CommentPlaceHolder;
-import id.ac.ui.cs.ristek.issuetracker.model.Issue;
-import id.ac.ui.cs.ristek.issuetracker.model.IssueDetailPlaceHolder;
+import id.ac.ui.cs.ristek.issuetracker.model.IssuePlaceHolder;
 
 public class IssueDetail extends AppCompatActivity {
     private RecyclerView recyclerViewIssueDetail;
@@ -22,14 +20,23 @@ public class IssueDetail extends AppCompatActivity {
         setContentView(R.layout.activity_issue_detail);
         recyclerViewIssueDetail = (RecyclerView) findViewById(R.id.issueDetailRecyclerView);
 
-        final List<CommentPlaceHolder> comments = new ArrayList<>();
-        comments.add(new CommentPlaceHolder("User 1", "Kotor banget"));
-        comments.add(new CommentPlaceHolder("User 2", "Kantin kotor ya"));
+        final List<Object> issue = new ArrayList<>();
+        issue.add(new IssuePlaceHolder("Kantin Kotor", "UserBaru", "Ini content coba nih ya panjang banget. Ini content coba nih ya panjang banget. " +
+                "Ini content coba nih ya panjang banget. Ini content coba nih ya panjang banget.", 2, 2));
+        issue.add(new CommentPlaceHolder("User 1", "Kotor banget"));
+        issue.add(new CommentPlaceHolder("User 300", "Kantin kotor banget sih"));
+        issue.add(new CommentPlaceHolder("User 12", "Kotor banget lah"));
+        issue.add(new CommentPlaceHolder("User 13", "Kotor banget kayak apa tau"));
+        issue.add(new CommentPlaceHolder("User 14", "Kotor banget nggak sih?"));
+        issue.add(new CommentPlaceHolder("User 15", "Kotor banget sih"));
+        issue.add(new CommentPlaceHolder("User 16", "Kotor banget, liat aja"));
+        issue.add(new CommentPlaceHolder("User 17", "Kotor banget, bersihin dong"));
 
-        IssueDetailPlaceHolder issue = new IssueDetailPlaceHolder("Kantin Kotor", "UserBaru", "Ini content", 2, comments);
-        IssueDetailAdapter adapter = new IssueDetailAdapter(getApplicationContext(), issue);
+        setTitle(((IssuePlaceHolder) issue.get(0)).getTitle());
 
-        recyclerViewIssueDetail.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        IssueDetailAdapter adapter = new IssueDetailAdapter(this, issue);
+
+        recyclerViewIssueDetail.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewIssueDetail.setAdapter(adapter);
 
     }

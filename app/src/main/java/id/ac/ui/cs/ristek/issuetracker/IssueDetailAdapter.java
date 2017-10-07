@@ -6,13 +6,12 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
-import id.ac.ui.cs.ristek.issuetracker.model.Comment;
 import id.ac.ui.cs.ristek.issuetracker.model.CommentPlaceHolder;
-import id.ac.ui.cs.ristek.issuetracker.model.Issue;
-import id.ac.ui.cs.ristek.issuetracker.model.IssueDetailPlaceHolder;
+import id.ac.ui.cs.ristek.issuetracker.model.IssuePlaceHolder;
 
 /**
  * Created by - on 07/10/2017.
@@ -22,13 +21,11 @@ public class IssueDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     private static final int CONTENT_CARD = 0;
     private static final int COMMENT_CARD = 1;
     private Context context;
-    private IssueDetailPlaceHolder issue;
-    private List<CommentPlaceHolder> commentList;
+    private List<Object> issue;
 
-    public IssueDetailAdapter(Context context, IssueDetailPlaceHolder issue) {
+    public IssueDetailAdapter(Context context, List<Object> issue) {
         this.context = context;
         this.issue = issue;
-
     }
 
     @Override
@@ -44,14 +41,14 @@ public class IssueDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if(getItemViewType(position) == CONTENT_CARD) {
             IssueDetailContentViewHolder contentHolder = (IssueDetailContentViewHolder) holder;
-            contentHolder.textViewIssueName.setText(issue.title);
-            contentHolder.textViewIssuer.setText(issue.user_id);
-            contentHolder.textViewContent.setText(issue.content);
-            Glide.with(context).load("https://nationalzoo.si.edu/sites/default/files/animals/redpanda-001.jpg").into(contentHolder.imageViewProfilePic);
+            IssuePlaceHolder issuePlaceHolder = (IssuePlaceHolder) issue.get(position);
+            contentHolder.textViewIssueName.setText(issuePlaceHolder.title);
+            contentHolder.textViewIssuer.setText(issuePlaceHolder.user_id);
+            contentHolder.textViewContent.setText(issuePlaceHolder.content);
+            Glide.with(context).load("https://nationalzoo.si.edu/sites/default/files/animals/redpanda-001.jpg").apply(RequestOptions.circleCropTransform()).into(contentHolder.imageViewProfilePic);
             Glide.with(context).load("https://nationalzoo.si.edu/sites/default/files/animals/redpanda-001.jpg").into(contentHolder.imageViewContent);
         } else {
-            commentList = issue.comments;
-            CommentPlaceHolder comment = commentList.get(position);
+            CommentPlaceHolder comment = (CommentPlaceHolder) issue.get(position);
             IssueDetailCommentViewHolder commentHolder = (IssueDetailCommentViewHolder) holder;
             commentHolder.textViewCommenter.setText(comment.userId);
             commentHolder.textViewComment.setText(comment.content);
@@ -60,7 +57,7 @@ public class IssueDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public int getItemCount() {
-        return 1;
+        return issue.size();
     }
 
     @Override
