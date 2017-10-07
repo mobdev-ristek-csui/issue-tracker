@@ -22,11 +22,13 @@ import id.ac.ui.cs.ristek.issuetracker.model.IssuePlaceHolder;
  */
 @EFragment(R.layout.fragment_my_issues)
 public class MyIssuesFragment extends Fragment {
+ 
     @ViewById(R.id.rv)
     RecyclerView RV ;
 
     @AfterViews
     void init(){
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("My Issues");
         final List<IssuePlaceHolder> issues = new ArrayList<>();
 
         issues.add(new IssuePlaceHolder("Kantin terlalu ramai", "Vincent", "Setiap semester ganjil, kantin menjadi terlalu penuh", 10, 20));
@@ -39,3 +41,4 @@ public class MyIssuesFragment extends Fragment {
         RV.setAdapter(issueAdapter);
     }
 }
+
