@@ -11,13 +11,13 @@ import android.widget.TextView;
  */
 
 public class IssueDetailContentViewHolder extends RecyclerView.ViewHolder {
-    private ImageView imageViewProfilePic;
-    private ImageView imageViewContent;
-    private TextView textViewIssueName;
-    private TextView textViewIssuer;
-    private TextView textViewContent;
-    private Button buttonUpvote;
-    private Button buttonComment;
+    public ImageView imageViewProfilePic;
+    public ImageView imageViewContent;
+    public TextView textViewIssueName;
+    public TextView textViewIssuer;
+    public TextView textViewContent;
+    public Button buttonUpvote;
+    public Button buttonComment;
 
     public IssueDetailContentViewHolder(View itemView) {
         super(itemView);

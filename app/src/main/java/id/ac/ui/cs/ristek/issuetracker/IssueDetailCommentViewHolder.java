@@ -9,8 +9,8 @@ import android.widget.TextView;
  */
 
 public class IssueDetailCommentViewHolder  extends RecyclerView.ViewHolder{
-    private TextView textViewCommenter;
-    private TextView textViewComment;
+    public TextView textViewCommenter;
+    public TextView textViewComment;
 
     public IssueDetailCommentViewHolder(View itemView) {
         super(itemView);
