@@ -1,13 +1,17 @@
 package id.ac.ui.cs.ristek.issuetracker.api;
 
 import android.os.Build;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.EBean;
+
 import java.io.IOException;
 
-import id.ac.ui.cs.ristek.issuetracker.preferences.UserPref;
+import id.ac.ui.cs.ristek.issuetracker.preferences.UserData;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -18,13 +22,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by faqrulan on 10/7/17.
  */
-
+@EBean()
 public class Api {
+
+    @Bean
+    public UserData userData;
     private static Retrofit defaultRetrofit;
     private static OkHttpClient defaultClient;
     private static final String BASE_URL = "http://pti-issue-dev.herokuapp.com/api/v1/";
 
-    private static Retrofit getRetrofit(){
+    private Retrofit getRetrofit(){
         if(defaultRetrofit == null){
             Gson gson = new GsonBuilder()
                     .setLenient()
@@ -40,7 +47,7 @@ public class Api {
         return defaultRetrofit;
     }
 
-    private static OkHttpClient getClient(){
+    private OkHttpClient getClient(){
         if(defaultClient == null){
             defaultClient = new OkHttpClient()
                     .newBuilder()
@@ -51,7 +58,7 @@ public class Api {
                             Request request;
                             request = original.newBuilder()
                                     .header("User-Agent", "Android: " + Build.MANUFACTURER + " " + Build.MODEL)
-                                    .header("Authorization", UserPref.instance().npm)
+                                    .header("Authorization", "")
                                     .method(original.method(), original.body())
                                     .build();
                             return chain.proceed(request);
@@ -62,8 +69,12 @@ public class Api {
         return defaultClient;
     }
 
-    public static <T> T service(Class<T> service){
+    public <T> T service(Class<T> service){
         return getRetrofit().create(service);
+    }
+
+    public void TesApi(){
+        Log.d("haha", userData.getNPM());
     }
 
 }

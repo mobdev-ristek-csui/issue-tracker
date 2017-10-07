@@ -1,19 +1,15 @@
 package id.ac.ui.cs.ristek.issuetracker.preferences;
 
+import org.androidannotations.annotations.sharedpreferences.DefaultString;
+import org.androidannotations.annotations.sharedpreferences.SharedPref;
+
 /**
  * Created by faqrulan on 10/7/17.
  */
+@SharedPref(value=SharedPref.Scope.UNIQUE)
+public interface UserPref {
 
-public class UserPref {
-
-    private static UserPref instance;
-    public String npm = "1506688891";
-
-    public static UserPref instance() {
-        if (instance == null) {
-            instance = new UserPref();
-        }
-        return instance;
-    }
+    @DefaultString("123")
+    String npm();
 
 }
