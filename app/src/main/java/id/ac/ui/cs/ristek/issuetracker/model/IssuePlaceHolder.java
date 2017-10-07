@@ -13,7 +13,7 @@ public class IssuePlaceHolder {
 
     public IssuePlaceHolder(String title, String user_id, String content, int num_of_upvotes, int num_of_comments) {
         this.title = title;
-        this.user_id = user_id;
+        this.user_id = "by " + user_id;
         this.content = content;
         this.num_of_upvotes = num_of_upvotes;
         this.num_of_comments = num_of_comments;

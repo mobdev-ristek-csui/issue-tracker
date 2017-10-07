@@ -22,9 +22,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:textSize="16dp"
+            android:textSize="20dp"
             android:textStyle="bold"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             tools:text="This is title of the issue" />
 
         <TextView
@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
             android:layout_weight="0.5"
+            android:textSize="20dp"
             android:paddingBottom="10dp"
             tools:text="by someone" />
     </RelativeLayout>
@@ -51,6 +52,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@id/user_id"
         android:layout_weight="0.26"
+        android:textSize="20dp"
         tools:text="issue explanation" />
 
     <LinearLayout
@@ -64,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingRight="20dp"
-            tools:drawableLeft="@mipmap/ic_launcher"
+            tools:drawableLeft="@drawable/upvotes_icon"
             tools:text="likes" />
 
         <TextView
