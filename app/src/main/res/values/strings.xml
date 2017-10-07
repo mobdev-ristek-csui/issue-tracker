@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Issue Tracker</string>
+    <string name="title_activity_new_issue">NewIssueActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="topik_masalah">Topik Masalah</string>
+    <string name="kategori">Kategori</string>
+    <string name="keterangan_pengaduan">Keterangan Pengaduan</string>
+    <string name="anonim">Anonim</string>
+    <string name="create">create</string>
 </resources>
