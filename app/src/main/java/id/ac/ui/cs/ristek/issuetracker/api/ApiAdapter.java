@@ -31,7 +31,7 @@ public class ApiAdapter {
     private static OkHttpClient defaultClient;
     private static final String BASE_URL = "http://pti-issue-dev.herokuapp.com/api/v1/";
 
-    private Retrofit getRetrofit(){
+    public Retrofit getRetrofit(){
         if(defaultRetrofit == null){
             Gson gson = new GsonBuilder()
                     .setLenient()
@@ -58,7 +58,7 @@ public class ApiAdapter {
                             Request request;
                             request = original.newBuilder()
                                     .header("User-Agent", "Android: " + Build.MANUFACTURER + " " + Build.MODEL)
-                                    .header("Authorization", userData.getNPM())
+                                    .header("Authorization", "1406579100")
                                     .method(original.method(), original.body())
                                     .build();
                             return chain.proceed(request);

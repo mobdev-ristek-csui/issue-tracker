@@ -69,4 +69,6 @@ dependencies {
     compile "org.androidannotations:androidannotations-api:$AAVersion"
     // BottomBar
     compile 'com.roughike:bottom-bar:2.3.1'
+    compile 'com.droidninja:filepicker:2.0.9'
+    compile 'com.jaredrummler:material-spinner:1.2.1'
 }

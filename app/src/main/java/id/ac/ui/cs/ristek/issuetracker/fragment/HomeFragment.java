@@ -20,6 +20,7 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.List;
 
+import id.ac.ui.cs.ristek.issuetracker.CreateIssueActivity_;
 import id.ac.ui.cs.ristek.issuetracker.MainActivity;
 import id.ac.ui.cs.ristek.issuetracker.R;
 import id.ac.ui.cs.ristek.issuetracker.adapter.IssueAdapter;
@@ -71,7 +72,7 @@ public class HomeFragment extends Fragment {
 
     @Click
     public void fab() {
-
+        CreateIssueActivity_.intent(getContext()).start();
     }
 
     @Override
