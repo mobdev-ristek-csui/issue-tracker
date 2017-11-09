@@ -44,14 +44,14 @@ public class Issue {
     @SerializedName("attachments")
     @Expose
     public List<Attachment> attachments = null;
-    @SerializedName("num_of_comments")
+    @SerializedName("numOfComments")
     @Expose
-    public int num_of_comments;
-    @SerializedName("num_of_upvotes")
+    public int numOfComments;
+    @SerializedName("numOfUpvotes")
     @Expose
-    public int num_of_upvotes;
-    @SerializedName("num_of_attachments")
+    public int numOfUpvotes;
+    @SerializedName("numOfAttachments")
     @Expose
-    public int num_of_attachments;
+    public int numOfAttachments;
 
 }

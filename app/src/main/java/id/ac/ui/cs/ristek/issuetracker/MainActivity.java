@@ -4,7 +4,6 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
@@ -14,20 +13,19 @@ import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-import id.ac.ui.cs.ristek.issuetracker.api.Api;
+import id.ac.ui.cs.ristek.issuetracker.api.ApiAdapter;
 import id.ac.ui.cs.ristek.issuetracker.fragment.HomeFragment;
 import id.ac.ui.cs.ristek.issuetracker.fragment.HomeFragment_;
 import id.ac.ui.cs.ristek.issuetracker.fragment.MyIssuesFragment;
 import id.ac.ui.cs.ristek.issuetracker.fragment.MyIssuesFragment_;
 import id.ac.ui.cs.ristek.issuetracker.fragment.ProfileFragment;
 import id.ac.ui.cs.ristek.issuetracker.fragment.ProfileFragment_;
-import id.ac.ui.cs.ristek.issuetracker.preferences.UserData;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
 
     @Bean
-    Api api;
+    ApiAdapter api;
     @ViewById(R.id.bottom_bar_main)
     BottomBar bottomBar;
     HomeFragment homeFragment;

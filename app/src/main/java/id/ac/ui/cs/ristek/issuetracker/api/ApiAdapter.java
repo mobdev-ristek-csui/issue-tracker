@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by faqrulan on 10/7/17.
  */
 @EBean()
-public class Api {
+public class ApiAdapter {
 
     @Bean
     public UserData userData;

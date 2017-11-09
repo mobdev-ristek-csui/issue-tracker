@@ -1,85 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:focusable="true"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:clickable="true"
-    android:background="?android:attr/selectableItemBackground"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:paddingBottom="2dp"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp"
+    android:paddingTop="2dp">
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="2dp"
+        card_view:cardUseCompatPadding="true">
 
-        <TextView
-            android:id="@+id/title"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:paddingTop="5dp"
-            tools:text="This is title of the issue" />
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="5dp">
 
-        <TextView
-            android:id="@+id/user_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/title"
-            android:layout_weight="0.5"
-            android:textSize="20dp"
-            android:paddingBottom="10dp"
-            tools:text="by someone" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:textColor="@color/colorBlack"
+                tools:text="This is title of the issue" />
 
-    <ImageView
-        android:id="@+id/issue_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/user_id"
-        android:layout_weight="0.46" />
 
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/user_id"
-        android:layout_weight="0.26"
-        android:textSize="20dp"
-        tools:text="issue explanation" />
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="issue explanation" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/content"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/num_of_upvotes"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingRight="20dp"
-            android:textSize="20dp"
-            android:drawableLeft="@drawable/ic_upvotes"
-            tools:text="likes" />
+                <TextView
+                    android:id="@+id/num_of_upvotes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@drawable/ic_upvotes"
+                    android:gravity="center"
+                    tools:text="likes" />
 
-        <TextView
-            android:id="@+id/num_of_comments"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/num_of_upvotes"
-            android:paddingRight="20dp"
-            android:textSize="20dp"
-            android:drawableLeft="@drawable/ic_comments"
-            tools:text="comments" />
+                <TextView
+                    android:id="@+id/num_of_comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_comments"
+                    android:gravity="center"
+                    tools:text="comments" />
 
-    </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
 
 </LinearLayout>

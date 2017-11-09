@@ -1,6 +1,5 @@
 package id.ac.ui.cs.ristek.issuetracker.fragment;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,11 +22,11 @@ import id.ac.ui.cs.ristek.issuetracker.model.IssuePlaceHolder;
 @EFragment(R.layout.fragment_my_issues)
 public class MyIssuesFragment extends Fragment {
 
-    @ViewById(R.id.rv)
-    RecyclerView RV ;
+    @ViewById
+    RecyclerView rv;
 
     @AfterViews
-    void init(){
+    void init() {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("My Issues");
         final List<IssuePlaceHolder> issues = new ArrayList<>();
 
@@ -35,10 +34,10 @@ public class MyIssuesFragment extends Fragment {
         issues.add(new IssuePlaceHolder("Kantin makanannya ayam semua", "Cesa", "jenis makanan di kantin kurang bervariasi", 12, 15));
         issues.add(new IssuePlaceHolder("MobDev keseringan minta makanan", "Jowin", "setiap kali internal class, selalu ada request makanan lol", 3, 2));
 
-        IssueAdapter issueAdapter = new IssueAdapter(getContext(), issues);
+//        IssueAdapter issueAdapter = new IssueAdapter(getContext(), issues);
 
-        RV.setLayoutManager(new LinearLayoutManager(getContext()));
-        RV.setAdapter(issueAdapter);
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+//        rv.setAdapter(issueAdapter);
     }
 }
 
