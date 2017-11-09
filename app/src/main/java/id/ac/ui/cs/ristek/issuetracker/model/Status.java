@@ -7,6 +7,8 @@ package id.ac.ui.cs.ristek.issuetracker.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 public class Status {
 
     @SerializedName("id")

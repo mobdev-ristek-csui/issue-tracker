@@ -15,7 +15,7 @@ import retrofit2.http.Path;
 
 public interface IssueService {
     @GET("reports/{id}")
-    Call<IssueListResponse> getIssueDetail(@Path("id") String id);
+    Call<Issue> getIssueDetail(@Path("id") int id);
 
     @GET("reports")
     Call<IssueListResponse> getIssues();
